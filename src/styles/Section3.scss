@@ -1,0 +1,123 @@
+.section3-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 20px;
+  padding: 40px;
+
+  .box {
+    width: 200px;
+    height: 200px;
+
+    @media (min-width: 1280px) {
+      margin-right: 40px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  // 📦 box1 — overlay 애니메이션
+  .box1 {
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s;
+
+    .overlay {
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid #fff;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      opacity: 0;
+      transition: all 0.6s;
+    }
+
+    &:hover .overlay {
+      bottom: 0;
+      opacity: 1;
+    }
+  }
+
+  // 📦 box2 — border switch, no transition
+  .box2 {
+    background: #f90;
+
+    &:hover {
+      background: #2ca;
+      box-shadow: inset 0 0 0 20px #00c;
+    }
+
+    &:not(:hover) {
+      background: #0c0;
+      box-shadow:
+        inset 0 0 0 20px #c00,
+        inset 0 0 0 40px #c00;
+    }
+  }
+
+  // 📦 box3 — click counter
+.box3 {
+  background: #aaa;
+  display: flex;
+  flex-direction: column;
+
+  .box3-1,
+  .box3-2 {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: relative;
+  }
+
+  .box3-1::before {
+    content: '전체 클릭: ' attr(data-count) '회';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .box3-2::after {
+    content: '3번 박스 클릭: ' attr(data-count) '회';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+  // ✅ 반응형 정렬
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+
+  @media (min-width: 768px) and (max-width: 1279px) {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  @media (min-width: 1280px) {
+    flex-direction: row;
+    gap: 40px;
+
+    .box {
+      border: 2px solid #000;
+    }
+  }
+}

@@ -1,0 +1,117 @@
+.header {
+  position: fixed;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 60px;
+  z-index: 999;
+
+  @media (min-width: 1280px) {
+    height: 80px;
+  }
+
+  .inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo img {
+    height: 40px;
+  }
+
+  .toggle {
+    font-size: 2rem;
+    background: none;
+    border: none;
+  }
+
+  .gnbWrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 1000;
+
+    .dim {
+      flex: 1;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .gnb {
+      width: 250px;
+      background: #fff;
+      padding: 20px;
+      overflow-y: auto;
+
+      ul {
+        li {
+          .menuBtn {
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 10px 0;
+          }
+
+          .subMenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding-left: 10px;
+
+            a {
+              display: block;
+              padding: 5px 0;
+              color: #222;
+              font-size: 0.95rem;
+            }
+
+            &.open {
+              max-height: 200px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .pcMenu {
+    ul {
+      display: flex;
+      gap: 2rem;
+
+      li {
+        position: relative;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover .subMenu {
+          display: block;
+        }
+
+        .subMenu {
+          display: none;
+          position: absolute;
+          background: #fff;
+          top: 100%;
+          left: 0;
+          padding: 0.5rem 1rem;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+          a {
+            display: block;
+            padding: 5px 0;
+            color: #333;
+            font-size: 0.95rem;
+          }
+        }
+      }
+    }
+  }
+}

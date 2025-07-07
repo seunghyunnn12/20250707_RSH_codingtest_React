@@ -1,0 +1,26 @@
+.test1-wrapper {
+  padding: 100px 40px 40px;
+  background: #f9f9f9;
+
+  .test1-swiper {
+    display: flex;
+    align-items: center;
+
+    .swiper-wrapper {
+      align-items: center;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 100%;
+        max-width: 180px;
+        height: auto;
+        object-fit: contain;
+      }
+    }
+  }
+}

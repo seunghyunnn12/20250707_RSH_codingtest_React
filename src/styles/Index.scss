@@ -1,0 +1,19 @@
+.index-wrapper {
+  height: 100vh;
+  background: #527296;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 5rem;
+    transition: color 0.3s;
+    cursor: default;
+    color: white;
+
+    &:hover {
+      color: #555;
+      cursor: pointer;
+    }
+  }
+}
